@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
@@ -69,7 +71,18 @@ public class DataDriven {
 								
 								while(cv.hasNext())
 								{
-									dataList.add(cv.next().getStringCellValue());
+									Cell c = cv.next();
+									if(c.getCellTypeEnum()==CellType.STRING)
+									{
+										dataList.add(c.getStringCellValue());
+									}
+									
+									else
+									{
+										dataList.add(NumberToTextConverter.toText(c.getNumericCellValue()));
+										
+									}
+									
 								}
 							}
 						}
