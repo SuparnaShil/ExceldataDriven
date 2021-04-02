@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class DataDriven {
 
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {								//error was poi and ooxml both file version 3.17 change it to 4.1.1
 		// TODO Auto-generated method stub
 		
 		/*
@@ -21,7 +21,7 @@ public class DataDriven {
 		 */
 		//System.out.println("abcd");
 		//File input stream argument
-		FileInputStream file =new FileInputStream("E:\\Selenium file\\ExcelDataDriven\\GitHub\\DemoData.xlsx");
+		FileInputStream file =new FileInputStream("E:\\Selenium file\\ExcelDataDriven\\GitHub\\ExceldataDriven\\DataDrivenExecl\\DemoData.xlsx");
 		//System.out.println("abcd");
 		
 		XSSFWorkbook workbook = new XSSFWorkbook(file);  // This work book us use for Excel data driven process
@@ -55,6 +55,22 @@ public class DataDriven {
 				
 				//System.out.println("abcd");
 				System.out.println(coloumNo);
+				
+				while(rows.hasNext())
+				{
+					Row r= rows.next();
+					if(r.getCell(coloumNo).getStringCellValue().equalsIgnoreCase("Purchase"))
+					{
+						//After you grab purchase testcase row = pull all the data of that row and fed into text
+						
+						Iterator<Cell> cv = r.cellIterator();
+						
+						while(cv.hasNext())
+						{
+							System.out.println(cv.next().getStringCellValue());
+						}
+					}
+				}
 			}
 		}
 			
