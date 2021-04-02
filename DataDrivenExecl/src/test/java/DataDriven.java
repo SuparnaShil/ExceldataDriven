@@ -19,13 +19,15 @@ public class DataDriven {
 		 * after you grab purchase testcase to all the data of that row pull all the data and feed into test
 		 * 
 		 */
-		
-		
+		//System.out.println("abcd");
 		//File input stream argument
-		FileInputStream file =new FileInputStream("E://Selenium file//ExcelDataDriven//GitHub//ExceldataDriven//DataDrivenExecl//DemoData.xlsx");
+		FileInputStream file =new FileInputStream("E:\\Selenium file\\ExcelDataDriven\\GitHub\\DemoData.xlsx");
+		//System.out.println("abcd");
+		
 		XSSFWorkbook workbook = new XSSFWorkbook(file);  // This work book us use for Excel data driven process
 		
-		
+		int k=0;
+		int coloumNo=0;
 		int sheets = workbook.getNumberOfSheets();
 		for(int i=0; i<sheets; i++)
 		{
@@ -39,12 +41,20 @@ public class DataDriven {
 				//This is actually the first row
 				Iterator<Cell> cell= firstRow.cellIterator();  //
 				
+				
 				while(cell.hasNext())  //is next cell is present
 				{
 					Cell CellValue= cell.next();  //grab the cell value
-					CellValue.getStringCellValue().equalsIgnoreCase("TestData1"); //compare the cell value with "TestData1"
+					if(CellValue.getStringCellValue().equalsIgnoreCase("TestCases")) //compare the cell value with "TestCases"
+					{
+						coloumNo = k;
+					}
+					
+					k++;
 				}
 				
+				//System.out.println("abcd");
+				System.out.println(coloumNo);
 			}
 		}
 			
