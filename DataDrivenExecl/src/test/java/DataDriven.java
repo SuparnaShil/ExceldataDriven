@@ -67,7 +67,8 @@ public class DataDriven {
 							{
 								//After you grab purchase testcase row = pull all the data of that row and fed into text
 								
-								Iterator<Cell> cv = r.cellIterator();
+								Iterator<Cell> cv =r.cellIterator();
+							
 								
 								while(cv.hasNext())
 								{
