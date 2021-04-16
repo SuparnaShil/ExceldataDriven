@@ -57,13 +57,13 @@ public class PracticeColum {
 
     //Create a loop over all the rows of excel file to read it
 
-    for (int i = 0; i < rowCount+1; i++) {
+    for (int i = 1; i < rowCount+1; i++) {
 
         Row row = guru99Sheet.getRow(i);
 
         //Create a loop to print cell values in a row
 
-        for (int j = 0; j < row.getLastCellNum(); j++) {
+        for (int j = 3; j < 5; j++) {
 
             //Print Excel data in console
 

@@ -58,7 +58,7 @@ public class DataDriven {
 						}
 						
 						//System.out.println("abcd");
-						System.out.println(coloumNo);
+						//System.out.println(coloumNo);
 						
 						while(rows.hasNext())
 						{
