@@ -42,7 +42,7 @@ public class TestExecution {
 	    Object [][] data = objExcelFile.datalist(filePath,"DemoData.xlsx","TestData2");
 	    
 	    
-	    for (int i=0; i<4; i++)
+	    for (int i=0; i<6; i++)
 	    {
 	    	for(int j=0; j<2; j++)
 	    	{

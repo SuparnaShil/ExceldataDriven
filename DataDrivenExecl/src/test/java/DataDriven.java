@@ -63,7 +63,7 @@ public class DataDriven {
 						while(rows.hasNext())
 						{
 							Row r= rows.next();
-							if(r.getCell(coloumNo).getStringCellValue().equalsIgnoreCase(TestCaseName))
+							if(r.getCell(coloumNo).getStringCellValue().equalsIgnoreCase(TestCaseName)) 
 							{
 								//After you grab purchase testcase row = pull all the data of that row and fed into text
 								

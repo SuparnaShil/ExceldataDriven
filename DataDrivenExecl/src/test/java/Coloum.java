@@ -3,16 +3,19 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Coloum {
 	
 	public Object[][] datalist (String filePath,String fileName,String sheetName) throws IOException
 	{
-		 Object [][] data = new Object [4][2];
+		 Object [][] data = new Object [6][2];
 		//Create an object of File class to open xlsx file
 
 	    File file =    new File("E:\\Selenium file\\ExcelDataDriven\\GitHub\\ExceldataDriven\\DataDrivenExecl\\DemoData.xlsx");
@@ -59,7 +62,7 @@ public class Coloum {
 	    
 	  
 
-	    for (int i=1, m = 0; i < rowCount+1 && m<4; i++,m++) {
+	    for (int i=1, m = 0; i < rowCount+1 && m<6; i++,m++) {
 	
 	    	
 
@@ -70,9 +73,36 @@ public class Coloum {
 	        for (int j=3, n = 0; j<5 && n< 2; j++,n++) {
 	       	
 	            //Print Excel data in console
-	        		data[m][n]=row.getCell(j).getStringCellValue();
+	        	
+	        	
+	        	
+	        
+			
+				if(row.getCell(j).getCellTypeEnum()==CellType.STRING)
+				{
+					data[m][n]=row.getCell(j).getStringCellValue(); 
+				}
+				
+				else
+				{
+					data[m][n] =NumberToTextConverter.toText(row.getCell(j).getNumericCellValue());
+					
+				}
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        	
+	        /*	
+	        		data[m][n]=row.getCell(j).get
 
-	            System.out.print(row.getCell(j).getStringCellValue()+"|| ");
+	            System.out.print(row.getCell(j).getStringCellValue()+"|| "); */
 	        	}
 
 	        }
